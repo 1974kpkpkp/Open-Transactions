@@ -96,18 +96,22 @@ $ sudo aptitude install gdc
 ###########################################
 
 
-
 ## Make a dir for all the stuff ##
 cd ~ && mkdir -p dev && cd dev
 
 
 ## IF NO OPENSSL 1.0.0 or higher ##
 
-# if your version of Ubuntu doesn't include OpenSSL 1.0:
+# if your version of Ubuntu doesn't include OpenSSL 1.0.0 or higher:
+# can check with "openssl version"
+#
+# CAUTION !!: installing a spearate version of openssl on your OS can mess
+# with your system and security, ONLY do this if you know what you are doing!
+#
 $ wget http://www.openssl.org/source/openssl-1.0.0j.tar.gz
 $ tar xf openssl-1.0.0j.tar.gz
 $ cd openssl-1.0.0j
-$ ./Configure linux-x86_64 shared --prefix=$HOME/.local
+$ ./config shared --prefix=$HOME/.local
 $ make
 $ make tests
 $ make install
@@ -137,9 +141,9 @@ $ export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig:$PKG_CONFIG_PATH
 # fetch O-T and prepare your copy for build
 
 # 'stable' (alpha) source tar ball method
-$ wget http://sourceforge.net/projects/opentxs/files/opentxs-0.89.d.tar.gz
-$ tar -zxvf opentxs-0.89.d.tar.gz
-$ cd opentxs-0.89.d
+$ wget http://sourceforge.net/projects/opentxs/files/opentxs-0.89.f.tar.gz
+$ tar -zxvf opentxs-0.89.f.tar.gz
+$ cd opentxs-0.89.f
 $ autoreconf -vif -Wall
 
 ### OR ###
