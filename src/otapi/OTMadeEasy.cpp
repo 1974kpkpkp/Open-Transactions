@@ -458,27 +458,37 @@ std::string OTMadeEasy::create_market_offer(const std::string  & SERVER_ID,
 }
 
 
-std::string OTMadeEasy::cancel_market_offer(const std::string  & SERVER_ID,
-                                            const std::string  & NYM_ID,
-                                            const std::string  & ASSET_ACCT_ID,
-                                            const std::string  & TRANS_NUM)
+std::string OTMadeEasy::kill_market_offer(const std::string  & SERVER_ID,
+                                          const std::string  & NYM_ID,
+                                          const std::string  & ASSET_ACCT_ID,
+                                          const std::string  & TRANS_NUM)
 {
-    return m_pME->cancel_market_offer(SERVER_ID,
-                                      NYM_ID,
-                                      ASSET_ACCT_ID,
-                                      OTAPI_Wrap::StringToLong(TRANS_NUM));
+    return m_pME->kill_market_offer(SERVER_ID,
+                                    NYM_ID,
+                                    ASSET_ACCT_ID,
+                                    OTAPI_Wrap::StringToLong(TRANS_NUM));
+}
+
+
+std::string OTMadeEasy::kill_payment_plan(const std::string  & SERVER_ID,
+                                          const std::string  & NYM_ID,
+                                          const std::string  & ACCT_ID,
+                                          const std::string  & TRANS_NUM)
+{
+    return m_pME->kill_payment_plan(SERVER_ID,
+                                    NYM_ID,
+                                    ACCT_ID,
+                                    OTAPI_Wrap::StringToLong(TRANS_NUM));
 }
 
 
 std::string OTMadeEasy::cancel_payment_plan(const std::string  & SERVER_ID,
                                             const std::string  & NYM_ID,
-                                            const std::string  & ACCT_ID,
-                                            const std::string  & TRANS_NUM)
+                                            const std::string  & THE_PAYMENT_PLAN)
 {
     return m_pME->cancel_payment_plan(SERVER_ID,
                                       NYM_ID,
-                                      ACCT_ID,
-                                      OTAPI_Wrap::StringToLong(TRANS_NUM));    
+                                      THE_PAYMENT_PLAN);
 }
 
 
